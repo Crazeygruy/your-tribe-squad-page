@@ -61,10 +61,9 @@
 }
 
 .member-preview-image {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
-
-  object-fit: cover;
+  height: auto;
 
   filter: saturate(0.85) brightness(0.9) contrast(0.95);
 }

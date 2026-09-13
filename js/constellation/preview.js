@@ -22,8 +22,7 @@ export const createPreview = () => {
   action.target = "_blank";
   action.rel = "noopener noreferrer";
   action.tabIndex = -1;
-  action.textContent = "View project ↗";
-
+  action.textContent = "Profile card";
   const info = document.createElement("div");
   info.className = "member-preview-info";
   info.append(name, index, action);
@@ -39,7 +38,10 @@ export const showPreview = (ctx, member, index, total) => {
   preview.querySelector(".member-preview-name").textContent = member.name;
   preview.querySelector(".member-preview-index").textContent =
     `${formatIndex(index)} / ${formatIndex(total)}`;
-  preview.querySelector(".member-preview-action").href = member.url;
+  const action = preview.querySelector(".member-preview-action");
+
+  action.href = member.url;
+  action.textContent = `Profile card · ${member.name}`;
 
   if (isTouch) {
     preview.classList.add("member-preview--center");

@@ -1,5 +1,3 @@
-
-
 @keyframes star-float {
   from {
     transform: translate(-50%, -50%);
@@ -16,8 +14,12 @@
 
 .constellation-star {
   animation:
-    star-float var(--float-duration, 6s)
-    ease-in-out var(--float-delay, 0s) infinite alternate;
+    star-float
+    var(--float-duration, 6s)
+    ease-in-out
+    var(--float-delay, 0s)
+    infinite
+    alternate;
 }
 
 .constellation-star--member:hover,
@@ -25,21 +27,40 @@
   animation-play-state: paused;
 }
 
-.constellation-stage.is-leaving .constellation-star {
+
+.constellation-stage--outgoing {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+.constellation-stage.is-entering {
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+.constellation-stage--outgoing.is-leaving .constellation-star {
   opacity: 0;
 
   animation: none;
 
   transform:
     translate(
-      calc(-50% + var(--travel-x, 0px)),
-      calc(-50% + var(--travel-y, 0px))
+      calc(-50% - var(--travel-x, 0px)),
+      calc(-50% - var(--travel-y, 0px))
     )
-    scale(0.6);
+    scale(0.94);
 
   transition:
     opacity 0.35s ease,
-    transform 0.35s ease;
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   pointer-events: none;
 }
@@ -53,16 +74,24 @@
         calc(-50% + var(--travel-x, 0px)),
         calc(-50% + var(--travel-y, 0px))
       )
-      scale(0.85);
+      scale(0.96);
   }
 
   to {
     opacity: 1;
-    transform: translate(-50%, -50%);
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
   }
 }
 
 .constellation-stage.is-entering .constellation-star {
-  animation: star-enter 0.45s ease both;
+  animation:
+    star-enter
+    0.5s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+
   animation-delay: var(--delay, 0ms);
 }
