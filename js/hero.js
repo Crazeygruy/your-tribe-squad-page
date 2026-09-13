@@ -1,21 +1,20 @@
-// Hero typewriter
+// Hero typewriter (if you want to know how it works lemme know friend)
+
+import { queryMedia } from "./utils.js";
 
 const title = document.querySelector(".hero-title");
 const text = document.querySelector(".hero-text");
 
 if (title && text) {
   const phrase = title.getAttribute("aria-label") || "";
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reducedMotion = queryMedia("(prefers-reduced-motion: reduce)");
 
-  // Rhythm: type -> hold -> delete -> pause -> repeat.
   const TYPE_MS = 150;
   const DELETE_MS = 90;
   const HOLD_MS = 1800;
   const EMPTY_MS = 600;
   const START_MS = 400;
 
-  // Without JS the pre-filled text in the HTML simply stays; reduced motion
-  // keeps it too (CSS renders the caret and arrow static).
   if (phrase && !reducedMotion.matches) {
     let i = 0;
 

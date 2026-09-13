@@ -1,0 +1,68 @@
+
+
+@keyframes star-float {
+  from {
+    transform: translate(-50%, -50%);
+  }
+
+  to {
+    transform:
+      translate(
+        calc(-50% + var(--float-x, 6px)),
+        calc(-50% + var(--float-y, 6px))
+      );
+  }
+}
+
+.constellation-star {
+  animation:
+    star-float var(--float-duration, 6s)
+    ease-in-out var(--float-delay, 0s) infinite alternate;
+}
+
+.constellation-star--member:hover,
+.constellation-star--member:focus-visible {
+  animation-play-state: paused;
+}
+
+.constellation-stage.is-leaving .constellation-star {
+  opacity: 0;
+
+  animation: none;
+
+  transform:
+    translate(
+      calc(-50% + var(--travel-x, 0px)),
+      calc(-50% + var(--travel-y, 0px))
+    )
+    scale(0.6);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+
+  pointer-events: none;
+}
+
+@keyframes star-enter {
+  from {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(-50% + var(--travel-x, 0px)),
+        calc(-50% + var(--travel-y, 0px))
+      )
+      scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.constellation-stage.is-entering .constellation-star {
+  animation: star-enter 0.45s ease both;
+  animation-delay: var(--delay, 0ms);
+}

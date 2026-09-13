@@ -35,10 +35,6 @@ body {
   line-height: 1.5;
 
   overflow-x: hidden;
-  isolation: isolate;
-
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 img {
@@ -99,4 +95,23 @@ body::after {
   to {
     transform: translate3d(4%, 3%, 0) scale(1.08);
   }
+}
+
+/* Utility */
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  overflow: hidden;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+
+  white-space: nowrap;
+  border: 0;
 }

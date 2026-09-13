@@ -1,0 +1,35 @@
+
+@media (hover: none) {
+  .constellation-star--destination .constellation-star-meta {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .constellation-star {
+    padding: 0.75rem;
+  }
+
+  .constellation-star--member .constellation-star-point {
+    width: 10px;
+    height: 10px;
+  }
+
+  .member-preview {
+    width: min(280px, 78vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .constellation-star {
+    animation: none;
+  }
+
+  .constellation-stage.is-entering .constellation-star {
+    animation: none;
+  }
+
+  .constellation-stage.is-leaving .constellation-star {
+    transition: none;
+  }
+}

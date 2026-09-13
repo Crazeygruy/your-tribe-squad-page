@@ -54,16 +54,13 @@
 
 /* Stage */
 
-/* touch-action keeps vertical page scrolling native while horizontal
-   swipes arrive as pointer events handled in js/carousel.js. */
 .spot-stage {
   padding: 0 var(--page-padding);
 
   touch-action: pan-y;
 }
 
-/* Slides: hidden by default, without JS only the first is shown so the
-   section still works with scripts disabled. */
+
 .spot-slide {
   display: none;
   grid-template-columns: 1fr 0.6fr;
@@ -76,11 +73,6 @@
 
 .no-js .spot-slide:first-child {
   display: grid;
-}
-
-/* With JS, exactly one slide, the one marked is-active, is visible. */
-.js .spot-slide {
-  display: none;
 }
 
 .js .spot-slide.is-active {
@@ -101,7 +93,7 @@
 
 .spot-image {
   position: relative;
-  isolation: isolate;
+  z-index: 0;
 }
 
 .spot-image img {
@@ -118,7 +110,6 @@
     brightness(0.9);
 }
 
-/* Stacked print behind the image, same depth language as Selected. */
 .spot-image::before {
   content: "";
   position: absolute;
