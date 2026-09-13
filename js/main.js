@@ -3,3 +3,4 @@ import "./reveals.js";
 import "./carousel.js";
 import "./parallax.js";
 import "./hero.js";
+import "./constellation.js";

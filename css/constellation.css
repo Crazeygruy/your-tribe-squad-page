@@ -1,0 +1,80 @@
+.constellation {
+  position: relative;
+  min-height: 100svh;
+  padding: 7rem var(--page-padding);
+}
+
+.constellation > .section-label {
+  margin-bottom: 3rem;
+}
+
+.constellation-stage {
+  position: absolute;
+  inset: var(--page-padding) var(--page-padding) 0;
+}
+
+.constellation-star {
+  position: absolute;
+  display: grid;
+  justify-items: start;
+  gap: 0.45rem;
+
+  padding: 0.5rem;
+
+  color: inherit;
+  background: none;
+  border: 0;
+
+  cursor: pointer;
+
+  transform: translate(-50%, -50%);
+}
+
+.constellation-star-point {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  background: var(--color-text);
+  box-shadow: 0 0 14px 2px rgb(244 244 241 / 40%);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.constellation-star-name {
+  font-size: 0.875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  transition: color 0.3s ease;
+}
+
+.constellation-star-meta {
+  color: var(--color-muted);
+
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.constellation-star:hover .constellation-star-point,
+.constellation-star:focus-visible .constellation-star-point {
+  transform: scale(1.5);
+  box-shadow: 0 0 20px 5px rgb(244 244 241 / 60%);
+}
+
+.constellation-star:hover .constellation-star-name,
+.constellation-star:focus-visible .constellation-star-name {
+  color: var(--color-text);
+}
+
+.constellation-star:focus-visible {
+  outline: 1px solid rgb(244 244 241 / 60%);
+  outline-offset: 4px;
+}
+
+.js .constellation-fallback {
+  display: none;
+}
