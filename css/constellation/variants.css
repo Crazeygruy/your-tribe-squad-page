@@ -1,0 +1,55 @@
+/* Constellation · Star flavours */
+
+.constellation-star--universe .constellation-star-name {
+  font-size: 1rem;
+}
+
+.constellation-star--member .constellation-star-point {
+  width: 8px;
+  height: 8px;
+}
+
+.constellation-star--member .constellation-star-name {
+  font-size: 0.8rem;
+}
+
+.constellation-star--member .constellation-star-meta {
+  order: -1;
+}
+
+.constellation-star--destination .constellation-star-point {
+  width: 5px;
+  height: 5px;
+
+  background: var(--color-muted);
+  box-shadow: 0 0 8px 1px rgb(244 244 241 / 20%);
+}
+
+.constellation-star--destination .constellation-star-name {
+  color: var(--color-muted);
+
+  font-size: 0.75rem;
+}
+
+.constellation-star--destination .constellation-star-meta {
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.constellation-star--destination:hover .constellation-star-meta,
+.constellation-star--destination:focus-visible .constellation-star-meta {
+  opacity: 1;
+}
+
+.constellation-star--home .constellation-star-point {
+  background: none;
+  border: 1px solid var(--color-text);
+  box-shadow: 0 0 14px 2px rgb(244 244 241 / 25%);
+}
+
+.constellation-star--home:hover .constellation-star-point,
+.constellation-star--home:focus-visible .constellation-star-point {
+  background: var(--color-text);
+  box-shadow: 0 0 20px 5px rgb(244 244 241 / 45%);
+}
